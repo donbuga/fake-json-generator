@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { faker } from '@faker-js/faker';
+import { generateRut } from './utils/commons';
 
 const App: React.FC = () => {
   const [attributes, setAttributes] = useState<{ name: string; type: string }[]>([
@@ -50,6 +51,15 @@ const App: React.FC = () => {
             case 'boolean':
               acc[attr.name] = faker.datatype.boolean();
               break;
+            case 'RUT':
+              acc[attr.name] = generateRut();
+              break;
+            case 'firstName':
+                acc[attr.name] = faker.person.firstName;
+                break; 
+            case 'lastName':
+                  acc[attr.name] = faker.person.lastName;
+                  break;          
             default:
               acc[attr.name] = null;
           }
@@ -72,11 +82,11 @@ const App: React.FC = () => {
   };
 
   const standardAttributes: Record<string, () => any> = {
-    firstName: faker.name.firstName,
-    lastName: faker.name.lastName,
+    firstName: faker.person.firstName,
+    lastName: faker.person.lastName,
     phoneNumber: faker.phone.number,
     email: faker.internet.email,
-    country: faker.address.country,
+    country: faker.location.country,
   };
 
   return (
@@ -128,6 +138,10 @@ const App: React.FC = () => {
                 <option value="string">String</option>
                 <option value="number">Number</option>
                 <option value="boolean">Boolean</option>
+                <option value="firstName">firstName</option>
+                <option value="lastName">lastName</option>
+                <option value="RUT">- RUT chileno</option>
+  
               </select>
               <button
                 onClick={handleAddAttribute}
