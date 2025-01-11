@@ -19,4 +19,11 @@ export const generateRut = (prefix: number = Math.floor(Math.random() * 13) + 9)
     const dv = calculateDV(randomNumber);
     return `${randomNumber}-${dv}`;
   };
+ 
+export const generateChileanPhone = (): string => {
+  const prefix = '+56 9';
+  const randomNumber = Math.floor(10000000 + Math.random() * 90000000); // Genera un número de 8 dígitos
+  return `${prefix} ${randomNumber}`;
+};
+  
 
