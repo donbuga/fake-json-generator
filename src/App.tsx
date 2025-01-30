@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { faker } from "@faker-js/faker";
 import { generateChileanPhone, generateRut } from "./utils/commons";
+import CopyableJson from "./components/CopyableJson";
 
 type AttributeType =
   | "string"
@@ -303,9 +304,8 @@ const App: React.FC = () => {
             >
               Generate JSON
             </button>
-            <pre className="mt-4 p-2 bg-gray-100 dark:bg-gray-700 text-sm rounded-md overflow-x-auto text-gray-800 dark:text-gray-200">
-              {JSON.stringify(generatedData, null, 2)}
-            </pre>
+      
+            <CopyableJson data={generatedData} />
           </div>
         </div>
       </div>
