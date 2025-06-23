@@ -18,6 +18,8 @@ type AttributeType =
   | "firstName"
   | "lastName"
   | "chileanPhone"
+  | "random9digits"
+  | "testEmail"
 
 interface Attribute {
   name: string;
@@ -31,6 +33,8 @@ const App: React.FC = () => {
     { name: "phoneNumber", type: "string" },
     { name: "email", type: "email" },
     { name: "country", type: "string" },
+    { name: "random9digits", type: "random9digits" },
+    { name: "testEmail", type: "testEmail" },
   ]);
 
   const [generatedData, setGeneratedData] = useState<object[]>([]);
