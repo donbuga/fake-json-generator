@@ -109,8 +109,14 @@ const App: React.FC = () => {
               acc[attr.name] = faker.lorem.paragraph();
               break;
             case "chileanPhone":  
-            acc[attr.name] = generateChileanPhone();
-            break;
+              acc[attr.name] = generateChileanPhone();
+              break;
+            case "random9digits":  
+              acc[attr.name] = faker.number.int({ min: 100000000, max: 999999999 });
+              break;
+            case "testEmail":  
+              acc[attr.name]  = faker.number.int({ min: 10000, max: 999999999 }).toString() + "@mailinator.com";
+              break;
             default:
               acc[attr.name] = null;
           }
@@ -156,6 +162,8 @@ const App: React.FC = () => {
     { label: "Paragraph", value: "paragraph" },
     { label: "-RUT chileno", value: "RUT" },
     { label: "-Teléfono chileno", value: "chileanPhone" },
+    { label: "-9d random", value: "random9digits" },
+    { label: "-Test email", value: "testEmail" },
   ];
 
   return (
