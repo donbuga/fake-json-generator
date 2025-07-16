@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { faker } from "@faker-js/faker";
 import { generateChileanPhone, generateRut } from "./utils/commons";
 import CopyableJson from "./components/CopyableJson";
+import Footer from "./components/Footer";
 
 type AttributeType =
   | "string"
@@ -321,6 +322,7 @@ const App: React.FC = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
